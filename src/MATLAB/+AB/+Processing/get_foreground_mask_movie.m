@@ -121,7 +121,7 @@ function [fgMaskMov,bgvals] = get_foreground_mask_movie(movieRotCyc, foregroundM
 %     fgThreshA2 = mean(bgValsA1) + 3*std(bgValsA1);
 %     
     % should we take max or min?
-    fgThreshB = min(fgThreshA1, fgThreshA2);
+    fgThreshB = max(fgThreshA1, fgThreshA2);
     fgMaskMov =  padarray(movieRotCycAmp >= fgThreshB, invalidPadSz, false, 'both');
     
    
