@@ -8,7 +8,9 @@ function [kymoMolEdgeIdxs, movieRot, rRot, cRot, ccIdxs, ccStructNoEdgeAdj, rota
     
     % rewritten by Albertas Dvirnas
     
-	import AB.Processing.get_rotation_angle;
+	%import AB.Processing.get_rotation_angle;
+    import OldDBM.MoleculeDetection.get_angle
+    
     import AB.Core.rotate_movie;
     import AB.Processing.get_foreground_mask_movie;
     import AB.Core.get_filtered_cc_struct;
@@ -19,7 +21,9 @@ function [kymoMolEdgeIdxs, movieRot, rRot, cRot, ccIdxs, ccStructNoEdgeAdj, rota
     % option, perhaps this is a good place for that?
     
     %% Derect angle
-    [rotationAngle] = get_rotation_angle(movieIn, preprocessSettings.rotation);
+    
+    %[rotationAngle] = get_rotation_angle(movieIn, preprocessSettings.rotation);
+    rotationAngle = get_angle(movieIn);
 
     %% Rotate movie
     [movieRot, rRot, cRot, segmentFrameRot] = rotate_movie(movieIn, -rotationAngle);
